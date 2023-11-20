@@ -1,15 +1,15 @@
-name: 'Action to deploy stacks to portainerr'
-description: 'Action to deploy stacks to portainerr'
-author: Hugo Lemos da Silva
+name: 'Action to deploy stacks to Portainer'
+description: 'Action to deploy stacks to Portainer'
+author: 'Hugo Lemos da Silva'
 branding:
   icon: 'bar-chart-2'
   color: 'yellow' 
 outputs:
   saida:
-    description: "success in deploy"
+    description: 'Success in deploy'
     value: ''
 runs:
-  using: "composite"
+  using: 'composite'
   steps:
-    - run: stack.sh
+    - run: ./stack.sh
       shell: bash
