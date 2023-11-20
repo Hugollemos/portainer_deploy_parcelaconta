@@ -1,5 +1,5 @@
-name: 'DEPLOY DA STACK'
-description: 'Action to deploy stacks to portainer'
+name: 'Action to deploy stacks to portainerr'
+description: 'Action to deploy stacks to portainerr'
 author: Hugo Lemos da Silva
 branding:
   icon: 'bar-chart-2'
@@ -11,5 +11,7 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - run: ${{ github.action_path }}/stack.sh
+    - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
+      shell: bash
+    - run: stack.sh
       shell: bash

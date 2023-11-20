@@ -1,5 +1,4 @@
 #!/bin/bash
-# Defina suas variáveis
 URL=$API_URL
 API_KEY=$API_KEY
 STACK_NAME=$STACK_NAME
