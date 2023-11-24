@@ -62,7 +62,7 @@ if [ $validar -eq 0 ]; then
   # verifica se o container existe. SE SIM 
   if [ ! -z "$stack_id" ]; then
 
-    # Solicitação para pausar a stack
+    echo "Solicitação para pausar a stack"
     curl -k -s -X POST "$URL/$stack_id/stop" \
       -H "X-API-Key: $API_KEY" \
       -F "type=2" \
@@ -70,15 +70,13 @@ if [ $validar -eq 0 ]; then
       -F "file=@$FILE_PATH" \
       -F "endpointId=$ENDPOINT" \
       -F "Name=$STACK_NAME" --insecure
-      
-    sleep 6
+      echo "Stack pausada. :)"
+    
+    sleep 18
 
-      echo "Deletando imagens..."
-      echo "Deletando imagem T_T"
+      echo "Deletando imagem"
       curl -X DELETE "$DELETE_IMAGE/$CONTAINER_IMAGE" -H "X-API-Key: $API_KEY" --insecure
       echo "Imagem deletada. :)"
-
-    sleep 6
 
     echo "entrando no processo de start da stack"
       # Solicitação para startar a stack
@@ -93,7 +91,7 @@ if [ $validar -eq 0 ]; then
   else 
     echo "STACK ENCONTRADA, PORÉM O CONTAINER NÃO FOI ENCONTRADO"
 
-    # Solicitação para pausar a stack
+    echo "Solicitação para pausar a stack"
     curl -k -s -X POST "$URL/$stack_id/stop" \
       -H "X-API-Key: $API_KEY" \
       -F "type=2" \
@@ -101,14 +99,13 @@ if [ $validar -eq 0 ]; then
       -F "file=@$FILE_PATH" \
       -F "endpointId=$ENDPOINT" \
       -F "Name=$STACK_NAME" --insecure
-    sleep 6
+      echo "Stack pausada. :)"
+    
+    sleep 18
 
     echo "Deletando imagens..."
-    echo "Deletando imagem T_T"
     curl -X DELETE "$DELETE_IMAGE/$CONTAINER_IMAGE" -H "X-API-Key: $API_KEY" --insecure
     echo "Imagem deletada. :)"
-
-    sleep 5
 
     echo "entrando no processo de start da stack"
       # Solicitação para startar a stack
